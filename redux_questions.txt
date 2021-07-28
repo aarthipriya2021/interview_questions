@@ -1,0 +1,107 @@
+                Redux Interview Questions
+
+STATE: control the behavioral of  component
+
+1.What is Redux?
+	Predictable state container for js apps.
+
+2.Where are we used?
+	-	Too many of props passed through the hierarchies of components 
+	-	In complexion of logic stage
+
+3.Benefits:
+	-	Predictable state
+	-	Easy to maintain
+	-	Easy to debug
+
+4.Core Principles:
+	# Single-source of Truth:
+		The source of the whole application is stored in an object tree, called store.
+	# State is read-only:
+		The only way to change the state is action, an object describing what happened
+	# Changes are made with pure functions:
+		How the state-tree is transformed by actions, you can write pure reducers.
+
+5.Workflow:
+	Redux allows you to manage the state of the application using single source of truth.
+	Any component can directly access the state from the store using Subscribe method.
+Store	-	Storing all application’s state in one place.(reducer)
+Action  -	Actions can be  dispatch based on the Event(state declare, payload)
+Reducer - 	Reducers are the pure function, It takes the previous state and actions
+		    And returns the next state.((action.type),(switch case))
+Subscribe -	Any components can easily access the store
+In Redux components don’t communicate each other, but all changes must go through the single source of truth.
+
+6.Store:
+	A Store is an Object which holds the whole state tree of your application.
+	store = createStore(myReducer);
+    export default store;
+
+7.Dispatch:
+	Dispatch is a method which triggers action with type and payload to reducer
+	store.dispatch({
+  type: "SET_LANGUAGE",
+  lang_code: "hi"
+});
+
+8.Subscribe:
+	Subscribe is a method which is used to subscribe data/state from Store automatically whenever there will any changes in state.
+
+9.Provider:
+	The Provider is a component that has a reference to the Store and provides the data from the Store to the component it wraps.
+
+
+10.Middleware:
+	# Middleware are being used in redux for extended functionality. it works between      
+                dispatching an action, and the moment it reaches to the reducer.
+# The most common use case for middleware is to support asynchronous actions.
+11.Middleware used for logging, crash reporting, routing,asynchronous API calls.
+
+12.applyMiddleware:
+	A store enhancer that applies the given middleware.
+
+13.What is Redux Thunk? Need?
+	# Redux thunk is a middleware.
+	# Redux Thunk allows you to write action creators that return a function instead of an 
+               Action.
+	# The thunk can be used to delay the dispatch of an action, or to dispatch only if a 
+               certain condition is met.
+
+14. Difference between from redux, react-redux, redux-thunk, redux-saga:
+	redux: main core redux library (independent from react)
+	react-redux: connects your redux store with react components
+redux-thunk: a redux middleware which helps you with async actions
+redux-saga: a redux middleware library to handle asynchronous action.
+
+15.What are Redux-Devtools?
+	# It lets you inspect every state and action payload.
+	# And also used in time-travel debugging
+
+16.What is mapStateToProps?
+	mapStateToProps is used for selecting the part of the data from the store that the        
+            connected component needs.
+
+17.Difference between mapStateToProps and mapDispatchToProps?
+mapStateToProps: It connects redux state to props of react component. 
+mapDispatchToProps: It connects redux actions to react props. mapDispatchToProps   
+is used to bind action in your component.
+18.What is the biggest difference between Connect and useSelector?
+React-redux hooks like useSelector() and the connect() can have the same  
+outcomes. The main difference between them is their ability to nudge (guide) the 
+way you write your components. 
+
+19.useSelector:
+	useSelector is a function that takes the current state as an argument and returns 
+            whatever data you want from it. It's very similar to mapStateToProps() .
+
+20.useDispatch:
+	we are able to dispatch any action to the store by simply adding an action as an 
+            argument to the new variable .
+
+21.useHistory:
+	This hook makes it really easy to add undo/redo functionality to your app.
+
+22.useParams:
+	Returns an object of the params for the route rendered.
+ 
+      	
